@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked In</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://kit.fontawesome.com/5028f5981e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/NavBarStyleSheet.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blueblack custom-select-lg h-100 ">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fab fa-linkedin text-info bg-white fa-3x linkedin_logo" aria-hidden="true"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse justify-content-between navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                </form><ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="mr-5 nav-link" href="/NewsFeed/Index">
+                            <i class="fas nav_icon-font fa-home" aria-hidden="true">
+                                <div class="card-header-pills font-weight-normal">Home</div>
+                            </i><span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="mr-5 nav-link" href="#">
+                            <i class="fas nav_icon-font fa-user-friends" aria-hidden="true">
+                                <div class="card-deck font-weight-normal">My Network</div>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="~/images/defaultImage.png" alt="..." class="navbar_img rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-font p-3 " id = "dropdown" aria-labelledby="navbarDropdown">
+                            <div class="container dropdown-item" style="width: max-content">
+                                <div class="row">
+                                    <div class="col-5 p-0" style="width: 0rem;">
+                                        <img src="~/images/defaultImage.png" class="dropdown_navbar_img rounded-circle img-thumbnail" alt="...">
+                                    </div>
+                                    <div class="carousel-inner col p-0" style="width: max-content">
+                                        <h5 class="card-title nav_icon-font"></h5>
+                                        <p class="card-text text-wrap">Student at Information Technology Institute (ITI)</p>
+                                        <a href="/Profile/Index" class="font-weight-bolder form-check text-primary">View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list-group border-top">
+                                <a href="#"><li class="border-0 form-check-label list-group list-group-item text-center text-muted">Sign Out</li></a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+    
+        @RenderBody()
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/MyScripts/ProfileScript.js"></script>
+    <script src="~/Scripts/NewsFeedScript.js"></script>
+</body>
+</html>

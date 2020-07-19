@@ -1,0 +1,28 @@
+﻿<div class="modal fade" id="picture" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="postattach">
+                    <div class="postattach--header">
+                        <div class="postattach--back" data-dismiss="modal" aria-label="Close">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <h2 class="postattach__Title">Edit your photo</h2>
+                    </div>
+                    <div class="postattach--select" id="imgDiv">
+                        <button class="postattach--select--content" id="btnImgSelected">
+                            <label class="mypost-label">
+                                <input type="file" onchange="readImgURL(this);" id="in1" multiple />
+                                Select images to share
+                            </label>
+                        </button>
+                    </div>
+                    <div class="postattach--footer">
+                        <button class="postattach--footer--btn postattach--footer--nextenabled" id="imgAttachNext" onclick="imgNext()" data-toggle="#post"  data-dismiss="modal" data-target="#post">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model List<UserSearchViewModel>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tesasdfat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/SearchStyleSheet.css">
+</head>
+<body class="search-page">
+    <div class="section__nav">
+        <div class="container">
+            <div class="nav row">
+                <a href="#" class="col-2 navbar-brand">
+                    <img class="nav__logo d-inline-block align-top" src="~/images/linkedIn-logo.png">
+                </a>
+
+                <form class="col row nav__form">
+                    <div class="nav__dropdown dropdown">
+                        <button class="col nav__text nav__form__field nav__dropdown nav__btn btn dropdown-toggle"
+                                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            Select
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="nav__text nav__form__field dropdown-item" href="#">People</a>
+                            <a class="nav__text nav__form__field dropdown-item" href="#">Jobs</a>
+                        </div>
+                    </div>
+                    <div class="col row">
+                        <input type="text" placeholder="First name"
+                               class="col nav__text nav__form__field nav__textbox form-control">
+                        <input type="text" placeholder="Last name"
+                               class="col nav__text nav__form__field nav__textbox form-control">
+                        <button class="col-1 nav__text nav__icon nav__form__field btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="col-3 row nav__btns">
+                    <div class="col">
+                        <button class="nav__btn--join btn btn-sm" type="button">Join now</button>
+                    </div>
+                    <button class="col nav__btn--sign btn btn-sm btn-outline-primary" type="button">Sign in</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="search-container">
+        <div class="search-container--left">
+            <h3 class="search-No-result">Showing @Model.Count Connections</h3>
+            <ul class="search-ul">
+                @foreach (var item in Model)
+                {
+                    Html.RenderPartial("_ConnecttionCard", item);
+                }
+            </ul>
+
+            <div class="search-pages-number">
+                <a href="" class="previous"><i class="fas fa-chevron-left"></i> Previous</a>
+                <span>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">5</a>
+                    <a href="">6</a>
+                    <a href="">7</a>
+                    <a href="">8</a>
+                    <a href="">...</a>
+                    <a href="">100</a>
+                </span>
+                <a href="" class="next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+        <script src="~/Scripts/popper.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
+    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/MyScripts/Search.js"></script>
+
+</body>
+</html>

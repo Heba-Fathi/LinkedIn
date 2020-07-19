@@ -1,0 +1,106 @@
+﻿@model LinkedIn.Web.Models.RegisterViewModel
+@using Linkedin.Entites.Enum;
+
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>SignUp</title>
+    <script src="https://kit.fontawesome.com/5028f5981e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/RegisterStyleSheet.css">
+</head>
+
+<body class="signup-page">
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "signup__form", role = "form" , enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+        <div class="Signup__Header">
+            <div class="signup__logo">
+                Linked<i class="fab fa-linkedin"></i>
+            </div>
+            <div class="signup__caption">
+                Make the most of your professional life
+            </div>
+        </div>
+        <div class="signup__main">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "signup-form-input" })
+            </div>
+            <div class="signup-form-input-container">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "signup-form-input" })
+            </div>
+            @Html.DropDownListFor(
+            m => m.Country,
+            Enum.GetValues(typeof(Country))
+                .Cast<Country>()
+                .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }),
+           new { @class = "signup-form-input-container" })
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.Gender, "male", new { @class = "form-check-input", id = "male" })
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.Gender, "female", new { @class = "form-check-input", id = "female" })
+                <label for="female" class="form-check-label">Female</label>
+            </div>
+                <div class="signup-form-input-container signup-upload">
+                    <label for="UploadPhoto"><i class="fas fa-camera"></i></label>
+                    <input id="UploadPhoto" type="file" name="imgFile" accept="image/*">
+                    @Html.ValidationMessageFor(m => m.imgFile)
+                 </div>
+            
+
+        
+
+                <div class="signup__aggr">
+                    By clicking Agree & Join, you agree to the LinkedIn <a href="">User Agreement, Privacy Policy</a> , and
+                    <a href="">Cookie Policy</a> .
+                </div>
+                <div class="signup__btns">
+                    <button type ="submit" class="signup-btn signup-btn--sky">Agree & Join</button>
+                    <button class="signup-btn signup-btn--dark-blue" href="#">
+                        <i class="fab fa-facebook-f"></i> Continue With
+                        Facebook
+                    </button>
+                </div>
+                <div style="text-align: center;">
+                    Already on LinkedIn? <a href="">Sign in</a>
+                </div>
+</div>
+}
+  
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

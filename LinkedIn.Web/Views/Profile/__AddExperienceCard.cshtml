@@ -1,0 +1,63 @@
+﻿@model Linkedin.Models.Entites.WorkExperience
+@{ 
+    string[] endDate;
+    string startMonth = "", startYear = "", endMonth ="", endYear="";
+    string[] startDate = Model.StartDate.ToString("MMM dd yyyy").Split(' ');
+    startMonth = startDate[0];
+    startYear = startDate[2];
+    if (Model.EndDate != null)
+    {
+        endDate = Model.EndDate.Value.ToString("MMM dd yyyy").Split(' ');
+        endMonth = endDate[0];
+        endYear = endDate[2];
+    }
+}
+<div id="@Model.Id" class="background__hide-icon media row py-3 ">
+    <div class="col-sm-1">
+        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+    </div>
+    <div class="media-body col-sm-10 ">
+        <h3>
+            @Model.Title
+        </h3>
+        <a href="http://" class="stretched-link text-decoration-none text-reset">
+            <p class="mb-0 d-inline ">@Model.Company.Name</p>
+        </a>
+        <p class="mb-0 d-inline ">. @Model.EmploymentType </p>
+        <br />
+        <p class="mb-0 d-inline text-muted">@startMonth @startYear</p>
+        @{
+            if (Model.EndDate == null)
+            {
+                <p class="mb-0 d-inline text-muted">- Present</p>
+            }
+            else
+            {
+                <p class="mb-0 d-inline text-muted">- @endMonth @endYear</p>
+            }
+        }
+
+        @{
+            if (Model.Location != null)
+            {
+                <p class="mb-0 text-muted">@Model.Location</p>
+            }
+        }
+
+        @{
+            if (Model.Location != null)
+            {
+                <p class="mb-0 text-muted">@Model.Description</p>
+            }
+        }
+        
+      
+    </div>
+    <a class="col-1 text-right" data-toggle="modal" onclick="EditExp('@Model.Id')">
+        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+    </a>
+    <a onclick="DeleteExp('@Model.Id')"><i style="font-size: 1.5rem; padding: 2.5rem;color: indianred;" class="fas fa-trash delete-icon"></i> </a>
+    @*href="Profile/DeleteExperience/@Model.Id"*@
+</div>
+<div class="u-border-bottom offset-1 row"></div>
+ 

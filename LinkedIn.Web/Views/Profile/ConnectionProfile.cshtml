@@ -1,0 +1,1479 @@
+﻿@model Linkedin.Models.Entites.ApplicationUser
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/5028f5981e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/ProfileStyleSheet.css" />
+    <title>LinkedIn</title>
+</head>
+
+<body>
+    <!-- Profile Header Section -->
+    <section class="p-3" id="ProfileSummary">
+        <div class="container u-border">
+            <div class="row">
+                <!-- upper div that includes img -->
+                <div class="col-sm-12 profile-imgs">
+                    <!--profile img -->
+                    <div class="position-absolute profile-img">
+                        @if (Model.ProfilePicURL != null)
+                        {
+                            <img src="@Url.Content(Model.ProfilePicURL)" class="rounded-circle">
+                        }
+                        else
+                        {
+                            <img src="~/images/defaultImage.png" class="rounded-circle">
+                        }
+                    </div>
+                </div>
+                <!-- down div -->
+                <div class="col-sm-12">
+                    <!-- upper section -->
+                    <div class="row pt-sm-3 pb-sm-3">
+                        <div class="col-sm-6 offset-6 dropdown">
+                            <div class="d-flex justify-content-end align-items-center edit-profile">
+                                <div class="p-2">
+                                    <a role="button" href="#" class="dropdown-toggle btn-primary btn-lg add-section"
+                                       id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Add Profile Section <!-- <i class="fas fa-sort-down"></i> -->
+                                    </a>
+                                    <!-- Add Profile Section Modal -->
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <!-- Add Profile Section form -->
+                                        <form class="accordion list " id="accordionExample">
+                                            <!-- intro card -->
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne">
+                                                    <h2 class="mb-0">
+                                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                                           aria-expanded="true" aria-controls="collapseOne">
+                                                            <span class="card-title"> Intro</span>
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        <div>
+                                                            <p class="font-weight-normal">
+                                                                Help the right people find you by showing what opportunities
+                                                                you’re open to.
+                                                            </p>
+                                                        </div>
+                                                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                                                            <i class="fab fa-stumbleupon-circle p-2"></i>
+                                                            <p class="p-2 font-weight-light">
+                                                                Looking for job opportunities Show recruiters and others
+                                                                you’re open to job opportunities.
+                                                            </p>
+                                                            <a> <i class="far fa-plus-square p-2"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- About card -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingTwo">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            About
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+
+                                                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-indent"></i>
+                                                            <div class="d-block">
+                                                                <p>Education</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    Use summary to share what you do or the opportunities you’re looking for.
+                                                                </p>
+                                                            </div>
+                                                            <a> <i class="far fa-plus-square p-2"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Background card -->
+                                            <div class="card">
+                                                <div class="card-header" id="headingThree">
+                                                    <h2 class="mb-0">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            Background
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body" style="font-size: 2rem;">
+                                                        <a class="work text-reset" href="#">
+                                                            <div class="d-flex m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center;">
+                                                                    <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                                                        <p>Work experience</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="education text-reset " href="# ">
+                                                            <div class="d-flex m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+                                                                    <i class="fas fa-university" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p>Education</p>
+                                                                        <p class="font-weight-lighter p-0 m-0">1 school in your profile.</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="licenses  text-reset" href="# ">
+                                                            <div class="d-flex m-auto p-2">
+
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+
+                                                                    <i class="fas fa-pager" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p>Licenses & Certifications</p>
+                                                                        <p class="font-weight-light p-0 m-0">
+                                                                            Showcase your expertise with your credentials.
+                                                                        </p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a class="volunteer  text-reset" href="# ">
+                                                            <div class="d-flex j m-auto p-2">
+                                                                <div class="p-2" style="display: flex; align-items: center; ">
+                                                                    <i class="far fa-heart" style="margin-right: 1rem;"></i>
+                                                                    <div class="d-block">
+                                                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                                                        <p>Work experience</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2" style="margin: auto 0;">
+                                                                    <i class="far fa-plus-square"></i>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- skills card -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingFour">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                                                            Skills
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down "></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-medal"></i>
+                                                            <div class="d-block">
+                                                                <p class="font-weight-bold">Slills</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    11 skills on your profile.
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- accomplishment -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingFive">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                            Acccomplishment
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down "></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        <p class="font-weight-bold">Additional Information</p>
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-medal"></i>
+                                                            <div class="d-block">
+                                                                <p>Request & Recommendation</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    Ask your connections to write you a recommendation.
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Supported language -->
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between " id="headingSix">
+                                                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                                                    <div class="p-2">
+                                                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                                                           data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                            Supported & Language
+                                                        </a>
+                                                    </div>
+                                                    <div class="p-2" style="margin: auto 0;">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                    <!-- </h2> -->
+                                                </div>
+                                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+
+                                                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                                                            <i class="fas fa-globe"></i>
+                                                            <div class="d-block">
+                                                                <p>Add profile IN another language</p>
+                                                                <p class="font-weight-lighter p-0 m-0">
+                                                                    You can add the above sections in other languages to make it easier for people to find
+                                                                    you.
+                                                                </p>
+                                                            </div>
+                                                            <div class="p-2" style="margin: auto 0;">
+                                                                <i class="far fa-plus-square"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="dropdown p-2">
+                                    <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        More....
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item">
+                                            <i class="fas fa-share p-2"></i>Share Profile vs
+                                            Message
+                                        </a>
+                                        <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Save as PDF</a>
+                                    </div>
+                                </div>
+                                <div class="p-2">
+                                    <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- down section  -->
+                    <div class="row p-3">
+                        <div class="col-sm-6 user-info">
+                            <div class="p-sm-3">
+                                <div>
+                                    <h2 class="d-inline-block">@Model.FirstName</h2>
+                                    <h2 class="d-inline-block">@Model.LastName</h2>
+                                </div>
+                                <div>
+                                    <h4> ITI Intake 40</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <h4>Egypt </h4>
+                                    <ul class="info">
+                                        <!-- Button trigger modal -->
+                                        <li id="connection"><a href="#" class="btn btn-link"> 500+ Connections </a></li>
+                                        <li id="contact">
+                                            <a href="#" type="button" class="btn btn-link" data-toggle="modal" data-target="#Connection">
+                                                Contact info
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 p-sm-3 experiences">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="sm-img"><img class="img-fluid" src="~/images/itiLogo.png"> </div>
+                                <div> <a href="#" class="btn btn-link"> Information Technology Instutute ITI </a></div>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="sm-img"><img class="img-fluid" src="~/images/itiLogo.png"> </div>
+                                <div> <a href="#" class="btn btn-link"> Information Technology Instutute ITI </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="p-3" id="About">
+        <div class="container">
+            <div class="row u-border pt-5 pb-5 pr-3 pl-3">
+                <header class="col-12 d-flex justify-content-between">
+                    <h2>About</h2>
+                    <a href="#" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pencil-alt profile-icon"></i>
+                    </a>
+                </header>
+                <div class="col-12 pt-3">
+                    <h5>
+                        Talented, Skilled, Passionate, and even Young Hardcore Developer
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard section -->
+    <section class="p-3" id="Dashboard">
+        <div class="container">
+            <div class="row dashboard u-border">
+                <h2 class="dashboard__title">Your Dashboard</h2>
+                <h3 class="dashboard__subtitle">Private to you</h3>
+                <div class="list-group list-group-horizontal flex-fill">
+                    <a href="#" class="list-group-item dashboard__item list-group-item-action">
+                        <div class="dashboard__count">4</div>
+                        <div class="dashboard__description">Who viewed your profile</div>
+                    </a>
+                    <a href="#" class="list-group-item dashboard__item list-group-item-action">
+                        <div class="dashboard__count">4</div>
+                        <div class="dashboard__description">Who viewed your profile</div>
+                    </a>
+                    <a href="#" class="list-group-item dashboard__item list-group-item-action">
+                        <div class="dashboard__count">4</div>
+                        <div class="dashboard__description">Who viewed your profile</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- background section -->
+    <section class="p-3" id="Background">
+        <div class="background container u-border rounded p-0">
+            <!-- Experience -->
+            <div class="p-4" id="Exps">
+                <div class="row">
+                    <h2 class="col-sm-11 background__section-heading">Experience</h2>
+                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-plus p-3 profile-icon "></i>
+                    </a>
+                </div>
+
+                @{
+                    foreach (var item in Model.WorkExperiences)
+                    {
+                        Html.RenderPartial("__AddExperienceCard", item);
+                    }
+                }
+            </div>
+
+            <!-- hr -->
+            <div class="u-border-bottom"></div>
+
+            <!-- Education -->
+            <div class="p-4">
+                <div class="row">
+                    <h2 class="col-sm-11 background__section-heading">Education</h2>
+                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-plus p-3 profile-icon "></i>
+                    </a>
+                </div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <h3>School</h3>
+                        </a>
+                        <p class="mb-0 d-inline ">Degree</p>
+                        <p class="mb-0 d-inline ">. Field of study</p>
+                        <p class="mb-0 d-inline ">. Grade</p>
+                        <br />
+                        <p class="mb-0 d-inline text-muted">Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">- Present</p>
+                        <p class="mb-0 text-muted">Activities and societies</p>
+                        <p class="mb-0 text-muted">Description</p>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+                </div>
+                <div class="u-border-bottom offset-1 row"></div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <h3>School</h3>
+                        </a>
+                        <p class="mb-0 d-inline ">Degree</p>
+                        <p class="mb-0 d-inline ">. Field of study</p>
+                        <p class="mb-0 d-inline ">. Grade</p>
+                        <br />
+                        <p class="mb-0 d-inline text-muted">Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">- Present</p>
+                        <p class="mb-0 text-muted">Activities and societies</p>
+                        <p class="mb-0 text-muted">Description</p>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- hr -->
+            <div class="u-border-bottom"></div>
+
+            <!-- Volunteer Experience -->
+            <div class="p-4">
+                <div class="row">
+                    <h2 class="col-sm-11 background__section-heading">Volunteer Experience</h2>
+                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-plus p-3 profile-icon "></i>
+                    </a>
+                </div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <h3>Role</h3>
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <p class="mb-0  ">Organization</p>
+                        </a>
+                        <p class="mb-0 d-inline text-muted">Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">- Present</p>
+                        <p class="mb-0 text-muted">Cause</p>
+                        <p class="mb-0 text-muted">Description</p>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+                </div>
+                <div class="u-border-bottom offset-1 row"></div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <h3>Role</h3>
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <p class="mb-0  ">Organization</p>
+                        </a>
+                        <p class="mb-0 d-inline text-muted">Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">- Present</p>
+                        <p class="mb-0 text-muted">Cause</p>
+                        <p class="mb-0 text-muted">Description</p>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- hr -->
+            <div class="u-border-bottom"></div>
+
+            <!-- licenses & certifications -->
+            <div class="p-4">
+                <div class="row">
+                    <h2 class="col-sm-11 background__section-heading">licenses & certifications</h2>
+                    <a href="" class="col-sm-1 text-right " data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-plus p-3 profile-icon "></i>
+                    </a>
+                </div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <h3>Name</h3>
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <p class="mb-0  ">Issuing Organization </p>
+                        </a>
+                        <p class="mb-0 d-inline text-muted">Issued Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">. Expired Jun2020</p>
+                        <p class="mb-0 text-muted">Credntial ID</p>
+                        <a href="http://" class="mb-0 text-muted">See Credntial</a>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+                </div>
+                <div class="u-border-bottom offset-1 row"></div>
+                <div class="background__hide-icon media row py-3 ">
+                    <div class="col-sm-1">
+                        <img src="~/images/itiLogo.png" class="align-self-start background__img" />
+                    </div>
+                    <div class="media-body col-sm-10 ">
+                        <h3>Name</h3>
+                        <a href="http://" class="stretched-link text-decoration-none text-reset">
+                            <p class="mb-0  ">Issuing Organization </p>
+                        </a>
+                        <p class="mb-0 d-inline text-muted">Issued Oct2019</p>
+                        <p class="mb-0 d-inline text-muted">. Expired Jun2020</p>
+                        <p class="mb-0 text-muted">Credntial ID</p>
+                        <a href="http://" class="mb-0 text-muted">See Credntial</a>
+                    </div>
+                    <a href="" class="col-1 text-right" data-toggle="modal" data-target="#FullModal">
+                        <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="p-3" id="Skills">
+        <div class="container section skills u-border">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Skills &Endorsements </h2>
+                    <a href="#" class="btn btn--edit btn--inline float-md-right" data-toggle="modal" data-target=".edit-skills">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="#" class="btn btn--add btn--inline float-md-right" data-toggle="modal" data-target="#SkillsModal">
+                        Add
+                        a New Skill
+                    </a>
+                    <div class="skill">
+                        <div class="skill__title">
+                            <h4 class="skill__name">Teamwork. </h4>
+                            <span class="skill__no-of-endorsments">1</span>
+                        </div>
+                        <div class="skill__description">
+                            <p class="skill__endorsed-person">Sara Ali</p>
+                            <p class="skill__endorsment-description">has given an endorsement for this skill </p>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__title">
+                            <h4 class="skill__name">Teamwork. </h4>
+                            <span class="skill__no-of-endorsments">1</span>
+                        </div>
+                        <div class="skill__description">
+                            <p class="skill__endorsed-person">Sara Ali</p>
+                            <p class="skill__endorsment-description">has given an endorsement for this skill </p>
+                        </div>
+
+                    </div>
+                    <div class="skill">
+                        <div class="skill__title">
+                            <h4 class="skill__name">Teamwork. </h4>
+                            <span class="skill__no-of-endorsments">1</span>
+                        </div>
+                        <div class="skill__description">
+                            <p class="skill__endorsed-person">Sara Ali</p>
+                            <p class="skill__endorsment-description">has given an endorsement for this skill </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="tools">
+                    <h3>Tools & Endorsements </h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool">
+                                <h4 class="tool__name">Teamwork. </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool">
+                                <h4 class="tool__name">Teamwork. </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool">
+                                <h4 class="tool__name">Teamwork. </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool">
+                                <h4 class="tool__name">Teamwork. </h4>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn--show btn--active" id="btn-1">Show more <i class="fas fa-chevron-down"></i></a>
+                <a class="btn btn--show" id="btn-2">Show less <i class="fas fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="p-3" id="Recommendations">
+        <div class="container section recommendations u-border">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Recommendations </h2>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                               aria-controls="nav-home" aria-selected="true">Recieved (2)</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                               aria-controls="nav-profile" aria-selected="false">Given (3)</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <ul class="list-unstyled tab">
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-left">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-left">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-left">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <ul class="list-unstyled tab">
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-left">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-left">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img src="~/images/client-3.jpg" class="mr-3 rounded-circle tab__img" alt="...">
+                                    <div class="media-body media__body">
+                                        <div class="tab__section">
+                                            <h5 class="mt-0 mb-1 tab__user">Salma</h5>
+                                            <p class="tab__user-description">Hr Manager</p>
+                                            <p class="tab__date">December 29, 2019, Heba was senior to Saleh but didn’t manage directly</p>
+                                        </div>
+                                        <div class="tab__section">
+                                            <p class="tab__body text-center">
+                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accomplishments -->
+    <section class="p-3" id="Accomplishments">
+        <div class="container section accomplishments u-border">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Accomplishments </h2>
+                    <div href="" class="btn btn--inline float-md-right btn--plus mr-4" data-toggle="tooltip"
+                         data-placement="bottom"><i class="fas fa-plus"></i></div>
+
+                    <div class="accomplishment">
+                        <div class="accomplishment__section accomplishment__section1">
+                            <p class="accomplishment__number">1</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section2 mr-3">
+                            <h4 class="accomplishment__type">
+                                Project
+                            </h4>
+                            <p class="accomplishment__description">Test Description</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section3 float-md-right">
+                            <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>
+                            <a class="btn btn--arrow" id="btn-2"> <i class="fas fa-chevron-up"></i></a>
+                        </div>
+                    </div>
+                    <div class="accomplishment">
+                        <div class="accomplishment__section accomplishment__section1">
+                            <p class="accomplishment__number">1</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section2 mr-3">
+                            <h4 class="accomplishment__type">
+                                Project
+                            </h4>
+                            <p class="accomplishment__description">Test Description</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section3 float-md-right">
+                            <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>
+                            <a class="btn btn--arrow" id="btn-2"> <i class="fas fa-chevron-up"></i></a>
+                        </div>
+                    </div>
+                    <div class="accomplishment">
+                        <div class="accomplishment__section accomplishment__section1">
+                            <p class="accomplishment__number">1</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section2 mr-3">
+                            <h4 class="accomplishment__type">
+                                Project
+                            </h4>
+                            <p class="accomplishment__description">Test Description</p>
+                        </div>
+                        <div class="accomplishment__section accomplishment__section3 float-md-right">
+                            <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>
+                            <a class="btn btn--arrow" id="btn-2"> <i class="fas fa-chevron-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Interests section displays the companies that a user following -->
+    <section class="p-5" id="Interests">
+        <div class="container interests">
+            <h2 class="interests__header">Interests</h2>
+            <div class="row interests__container">
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-1.png" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-1.png" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="row interests__container">
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-3.png" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-4.jpg" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="row interests__container ">
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-5.jpg" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+                <div class="col-2 col-md-1 text-right">
+                    <a href="#"><img src="~/images/logo-6.jpg" class="interests__logo" alt="bla"></a>
+                </div>
+                <div class="col-10 col-md-5">
+                    <a href="#" class="interests__link">
+                        <h3 class="text-truncate interests__description">
+                            Company Name or Description
+                        </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                        <p class="interests__follower-count">
+                            company follower counter
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <!--button to see a linkedin user companies -->
+            <a href="#" data-toggle="modal" data-target="#interests-modal" class="row interests__see-all">
+                <div class="interests__see-all-btn">See all</div>
+            </a>
+
+            <!-- Modal content that contains user's companies -->
+            <div class="modal fade" id="interests-modal" role="dialog">
+                <div class="modal-dialog modal-lg interests-modal">
+                    <div class="interests-modal__content modal-content">
+                        <div class="interests-modal__header modal-header">
+                            <h3 class="interests-modal__title">Companies</h3>
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
+                        <div class="interests-modal__body modal-body ">
+                            <div class="row interests-modal__container">
+                                <div class="col-1">
+                                    <a href="#"><img src="~/images/logo-5.jpg" class="interests__logo" alt="bla"></a>
+                                </div>
+                                <div class="col-7">
+                                    <a href="#" class="interests__link ">
+                                        <h3 class="text-truncate interests__description">
+                                            Company Name or Description
+                                        </h3>
+                                    </a>
+                                    <a href="#" class="interests__link">
+                                        <p class="interests__follower-count">
+                                            company follower counter
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a class="interests__link--modal" href="#">
+                                        <i class="fas fa-check "></i>
+                                        <span>Following</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row interests-modal__container">
+                                <div class="col-1">
+                                    <a href="#"><img src="~/images/logo-5.jpg" class="interests__logo" alt="bla"></a>
+                                </div>
+                                <div class="col-7">
+                                    <a href="#" class="interests__link ">
+                                        <h3 class="text-truncate interests__description">
+                                            Company Name or Description
+                                        </h3>
+                                    </a>
+                                    <a href="#" class="interests__link">
+                                        <p class="interests__follower-count">
+                                            company follower counter
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a class="interests__link--modal" href="#">
+                                        <i class="fas fa-check "></i>
+                                        <span>Following</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row interests-modal__container">
+                                <div class="col-1">
+                                    <a href="#"><img src="~/images/logo-5.jpg" class="interests__logo" alt="bla"></a>
+                                </div>
+                                <div class="col-7">
+                                    <a href="#" class="interests__link ">
+                                        <h3 class="text-truncate interests__description">
+                                            Company Name or Description
+                                        </h3>
+                                    </a>
+                                    <a href="#" class="interests__link">
+                                        <p class="interests__follower-count">
+                                            company follower counter
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a class="interests__link--modal" href="#">
+                                        <i class="fas fa-check "></i>
+                                        <span>Following</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Modal  More Button-->
+    <div class="modal fade" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nora Mohamed</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-block p-2">
+                        <div class="d-flex justify-content-between">
+                            <h2>Contact info </h2>
+                            <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </div>
+                        <div>
+                            <div class="d-flex p-2 ">
+                                <div class="d-block p-2">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="d-flex flex-column p-2">
+                                    <span> your profile</span>
+                                    <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@linkedin.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex p-2 ">
+                                <div class="d-block p-2">
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <div class="d-flex flex-column p-2">
+                                    <span> Email</span>
+                                    <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Skill -->
+    <div class="modal fade edit-skills" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">
+                        Reorder Skills & Endorsements (12)
+                    </h2>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="skill-title">
+                        Top Skills
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="skill-edit">
+                                <span class="skill-edit__skill">HTML5</span>
+                                <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                                <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                            </div>
+                            <div class="skill-edit">
+                                <span class="skill-edit__skill">HTML5</span>
+                                <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                                <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                            </div>
+                            <div class="skill-edit">
+                                <span class="skill-edit__skill">HTML5</span>
+                                <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                                <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap form popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Form
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Modal -->
+    @{
+        Html.RenderPartial("_Experience", new LinkedIn.Web.Models.ProfileViewModels.WorkExperienceViewModel());
+    }
+
+
+    <!-- Skills Modal -->
+    <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content row">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SkillsModalLabel">Add Some SKills N00B</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-controls">
+
+                            <div class="taged-textbox form-group">
+
+                                <input class="taged-textbox__textbox form-control" type="text" name="" id=""
+                                       placeholder="Add Some Skills N00B">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Profile Section Modal -->
+    <div class="dropdown-menu" aria-labelledby="opaDropDown">
+        <!-- Add Profile Section form -->
+        <form class="accordion list " id="accordionExample">
+            <!-- intro card -->
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne">
+                            <span class="card-title"> Intro</span>
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div>
+                            <p class="font-weight-normal">
+                                Help the right people find you by showing what opportunities you’re open to.
+                            </p>
+                        </div>
+                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                            <i class="fab fa-stumbleupon-circle p-2"></i>
+                            <p class="p-2 font-weight-light">
+                                Looking for job opportunities Show recruiters and others you’re open to
+                                job opportunities.
+                            </p>
+                            <a> <i class="far fa-plus-square p-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About card -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between " id="headingTwo">
+                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                    <div class="p-2">
+                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse" data-target="#collapseTwo"
+                           aria-expanded="false" aria-controls="collapseTwo">
+                            About
+                        </a>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                        <i class="fas fa-chevron-down "></i>
+                    </div>
+                    <!-- </h2> -->
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+
+                        <div style="display: flex; align-items: center; font-size: 2rem;">
+                            <i class="fas fa-indent"></i>
+                            <div class="d-block">
+                                <p>Education</p>
+                                <p class="font-weight-lighter p-0 m-0">
+                                    Use summary to share what you do or the opportunities you’re looking for.
+                                </p>
+                            </div>
+                            <a> <i class="far fa-plus-square p-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Background card -->
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                           data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Background
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body" style="font-size: 2rem;">
+                        <a class="work text-reset" href="#">
+                            <div class="d-flex m-auto p-2">
+                                <div class="p-2" style="display: flex; align-items: center;">
+                                    <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
+                                    <div class="d-block">
+                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                        <p>Work experience</p>
+
+                                    </div>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="education text-reset " href="# ">
+                            <div class="d-flex m-auto p-2">
+                                <div class="p-2" style="display: flex; align-items: center; ">
+                                    <i class="fas fa-university" style="margin-right: 1rem;"></i>
+                                    <div class="d-block">
+                                        <p>Education</p>
+                                        <p class="font-weight-lighter p-0 m-0">1 school in your profile.</p>
+
+                                    </div>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="licenses  text-reset" href="# ">
+                            <div class="d-flex m-auto p-2">
+
+                                <div class="p-2" style="display: flex; align-items: center; ">
+
+                                    <i class="fas fa-pager" style="margin-right: 1rem;"></i>
+                                    <div class="d-block">
+                                        <p>Licenses & Certifications</p>
+                                        <p class="font-weight-light p-0 m-0">
+                                            Showcase your expertise with your credentials.
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="volunteer  text-reset" href="# ">
+                            <div class="d-flex j m-auto p-2">
+                                <div class="p-2" style="display: flex; align-items: center; ">
+                                    <i class="far fa-heart" style="margin-right: 1rem;"></i>
+                                    <div class="d-block">
+                                        <p class="font-weight-light p-0 m-0">3 positions on your profile.</p>
+                                        <p>Work experience</p>
+                                    </div>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- skills card -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between " id="headingFour">
+                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                    <div class="p-2">
+                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                           data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                            Skills
+                        </a>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <!-- </h2> -->
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+
+                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                            <i class="fas fa-medal"></i>
+                            <div class="d-block">
+                                <p class="font-weight-bold">Slills</p>
+                                <p class="font-weight-lighter p-0 m-0">
+                                    11 skills on your profile.
+                                </p>
+                            </div>
+                            <div class="p-2" style="margin: auto 0;">
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- accomplishment -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between " id="headingFive">
+                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                    <div class="p-2">
+                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse"
+                           data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Acccomplishment
+                        </a>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                        <i class="fas fa-chevron-down "></i>
+                    </div>
+                    <!-- </h2> -->
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Additional Information</p>
+                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                            <i class="fas fa-medal"></i>
+                            <div class="d-block">
+                                <p>Request & Recommendation</p>
+                                <p class="font-weight-lighter p-0 m-0">
+                                    Ask your connections to write you a recommendation.
+                                </p>
+                            </div>
+                            <div class="p-2" style="margin: auto 0;">
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Supported language -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between " id="headingSix">
+                    <!-- <h2 class="mb-0 justify-content-between "> -->
+                    <div class="p-2">
+                        <a class="btn btn-link collapsed text-reset" data-toggle="collapse" data-target="#collapseSix"
+                           aria-expanded="false" aria-controls="collapseSix">
+                            Supported & Language
+                        </a>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                        <i class="fas fa-chevron-down "></i>
+                    </div>
+                    <!-- </h2> -->
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                    <div class="card-body">
+
+                        <div style="display: flex; justify-content:space-between; align-items: center; font-size: 2rem;">
+                            <i class="fas fa-globe"></i>
+                            <div class="d-block">
+                                <p>Add profile IN another language</p>
+                                <p class="font-weight-lighter p-0 m-0">
+                                    You can add the above sections in other languages to make it easier for people to find you.
+                                </p>
+                            </div>
+                            <div class="p-2" style="margin: auto 0;">
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/MyScripts/ProfileScript.js"></script>
+
+</body>
+
+</html>

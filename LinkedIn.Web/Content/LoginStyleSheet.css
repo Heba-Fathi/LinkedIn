@@ -1,0 +1,336 @@
+﻿html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Fira Sans', sans-serif; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ v2.0 | 20110126
+ License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.grid-container {
+  width: 1579px;
+  max-width: 100%;
+  margin: auto;
+  background-color: red; }
+
+.btn__showPassword {
+  left: 8rem;
+  position: relative;
+  top: 3rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #0073b1;
+  cursor: pointer;
+  /* font-size: 1.4rem; */
+  font-weight: 600;
+  font-family: inherit; }
+
+.btn__primary--large {
+  width: 21rem;
+  background-color: #0073b1;
+  border: 0;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  font-family: inherit;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  outline-width: 2px;
+  padding: 0 24px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-duration: 167ms;
+  transition-duration: 167ms;
+  -webkit-transition-property: background-color,color,-webkit-box-shadow;
+  transition-property: background-color,color,-webkit-box-shadow;
+  transition-property: background-color,box-shadow,color;
+  transition-property: background-color,box-shadow,color,-webkit-box-shadow;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  vertical-align: middle;
+  z-index: 0; }
+
+.btn__tertiary--medium {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #0073b1;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-family: inherit;
+  height: 32px;
+  line-height: 32px;
+  overflow: hidden;
+  outline-width: 2px;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-duration: 167ms;
+  transition-duration: 167ms;
+  -webkit-transition-property: background-color,color,-webkit-box-shadow;
+  transition-property: background-color,color,-webkit-box-shadow;
+  transition-property: background-color,box-shadow,color;
+  transition-property: background-color,box-shadow,color,-webkit-box-shadow;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  vertical-align: middle;
+  z-index: 0; }
+
+@media screen and (max-width: 500px) {
+  .btn__primary--large {
+    width: 26rem; } }
+
+.container__input {
+  position: relative;
+  top: -1rem; }
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+  position: relative;
+  align-items: center;
+  margin-top: -1rem; }
+
+.footer__base {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  .footer__base__nav-list {
+    display: inline-flex;
+    list-style: none; }
+    .footer__base__nav-list li {
+      margin-right: 1rem; }
+    .footer__base__nav-list a {
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.9);
+      text-decoration: none; }
+
+.footer__container {
+  display: inline-flex; }
+
+.sign-in-form {
+  position: relative;
+  transition: all 0.2s;
+  touch-action: manipulation; }
+  .sign-in-form .btn__showPassword {
+    width: auto;
+    height: auto; }
+  .sign-in-form__login {
+    width: 384px;
+    margin: auto; }
+    .sign-in-form__login input {
+      margin: 0 0 12px 0; }
+  .sign-in-form input {
+    font-size: 1em;
+    font-family: inherit;
+    width: 20rem;
+    height: 43px;
+    cursor: text;
+    padding: 5px 4px 0px; }
+  .sign-in-form label {
+    display: block;
+    text-align: left;
+    width: 100px;
+    font-size: .8rem;
+    left: -7rem; }
+
+input:placeholder-shown + label {
+  position: relative;
+  cursor: text;
+  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5); }
+
+/* ::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+} */
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 1rem) scale(1);
+  left: -7rem;
+  position: relative;
+  cursor: pointer; }
+
+@media screen and (max-width: 747px) {
+  .form__login input {
+    width: 40rem; }
+  .form__login label {
+    left: -17rem; }
+  input:not(:placeholder-shown) + label,
+  input:focus + label {
+    transform: translate(0, 1rem) scale(1);
+    left: -17rem;
+    position: relative;
+    cursor: pointer; }
+  .footer__base__nav-list li {
+    font-size: 10px; }
+  .sign-in-form .btn__showPassword {
+    left: 18rem; }
+  .btn__primary--large {
+    width: 41rem; } }
+
+@media screen and (max-width: 500px) {
+  .form__login input {
+    width: 28rem; }
+  .form__login label {
+    left: -11rem; }
+  input:not(:placeholder-shown) + label,
+  input:focus + label {
+    left: -11rem;
+    position: relative;
+    cursor: pointer; }
+  .footer__base__nav-list li {
+    font-size: 5px; }
+  .btn__primary--large {
+    width: 29rem; }
+  .sign-in-form .btn__showPassword {
+    left: 11rem; } }
+
+.header__logo {
+  padding: 32px 0 24px 0;
+  margin-top: 5%;
+  text-align: center; }
+
+.header__content {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+  .header__content--background {
+    background-color: #f3f6f8;
+    position: relative;
+    padding: 24px 24px 32px; }
+  .header__content--heading {
+    font-size: 1.4rem;
+    line-height: 1.33333;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 0 0 4px 0; }
+  .header__content--subheading {
+    font-size: .9rem;
+    line-height: 1.75;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    padding-bottom: 32px; }
+
+li-icon[type="linkedin-logo"][size="21dp"] {
+  width: 84px;
+  height: 21px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative; }
+
+li-icon[type="linkedin-logo-small"] {
+  width: 58px;
+  height: 1rem;
+  display: inline-block;
+  overflow: hidden;
+  position: relative; }
+
+.app__content {
+  display: block;
+  text-align: center;
+  min-height: calc(100vh - 4.1rem); }
+
+.nav__base {
+  height: 8px;
+  background-color: #283e4a;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.nav__base {
+  height: 8px;
+  background-color: #283e4a;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.Text a {
+  text-decoration: none;
+  font-weight: 600;
+  background-color: transparent;
+  border: 0;
+  color: #0073b1; }

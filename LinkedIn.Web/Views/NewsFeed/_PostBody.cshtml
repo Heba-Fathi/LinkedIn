@@ -1,0 +1,56 @@
+﻿@model Post
+@if (Model.SharedPostId != null)
+{
+    @Html.Partial("_SharedPost")
+}
+
+<div class="card post shadow mb-4" id="@Model.Id">
+    <div class="post-header card-header">
+        @if (@Model.Author.ProfilePicURL != null)
+        {
+            <img class="post-profile-img" src="@Model.Author.ProfilePicURL">
+        }
+        else
+        {
+            <img class="mypost-profilepic" src="~/images/defaultImage.png" alt="Card image cap">
+        }
+        <div class="post-header-creator-info">
+            <h6>@Model.Author.FirstName @Model.Author.LastName</h6>
+            <small class="text-muted">@Model.Author.Indstry</small>
+            <small class="text-muted">Add at @Model.Date.Day</small>
+        </div>
+    </div>
+
+
+
+    <div class="post-body card-body">
+        <div class="card post">
+            <div class="post-body card-body">
+                <p class="card-text">@Model.Status @Model.Date.Year @Model.Date.Month @Model.Date.Day @Model.Date.TimeOfDay</p>
+            </div>
+        </div>
+
+
+        @if (Model.ImageUrl != null)
+        {
+            <img class="card-img-top" src="@Url.Content(Model.ImageUrl) " alt="Card image cap">
+        }
+
+
+    </div>
+
+
+    @*number of likes and comments*@
+    @*<div class="post-status">
+
+            <p class="card-text">
+                <small class="text-muted">
+                    <small class="text-muted" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="far fa-thumbs-up"></i>&nbsp;<i class="far fa-comments"></i>&nbsp;<i class="fas fa-share"></i>@Model.Likes.Count</small>
+                    <small class="text-muted">@Model.Comments.Count</small>
+                </small>
+            </p>
+
+        </div>*@
+    @Html.Partial("_LikeAndComment")
+</div>
+

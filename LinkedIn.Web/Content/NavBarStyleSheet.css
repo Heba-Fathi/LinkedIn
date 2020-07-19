@@ -1,0 +1,34 @@
+html {
+  font-size: 62.5%; }
+
+* {
+  margin: 0;
+  padding: 0; }
+body{
+    margin: 0;
+    padding: 0;
+}
+.linkedin_logo {
+  line-height: 0.8; }
+
+.navbar_img {
+  width: 3.5rem; }
+
+.dropdown_navbar_img {
+  width: 5rem; }
+
+.bg-blueblack {
+  background-color: #283E4A !important; }
+
+.nav_icon-font {
+  font-size: 1.6rem; }
+
+.dropdown-font {
+  font-size: 1.5rem; }
+.card-img-top{
+    width: 5rem;
+}
+#dropdown{
+    left: -10rem;
+    width: 30rem;
+}

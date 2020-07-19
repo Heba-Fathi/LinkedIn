@@ -1,0 +1,26 @@
+﻿@model CommentViewModel
+@{
+    AjaxOptions opts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "comments" + Model.PostId,
+        InsertionMode = InsertionMode.InsertAfter,
+    };
+}
+<div class="col-md-12 col-lg-12 col-sm-12">
+    <div class="input-group mt-2 ml-0">
+        <img class="post-profile-img mr-3" src="unnamed.jpg">
+        @using (Ajax.BeginForm("AddComment", "NewsFeed", opts))
+        {
+            @Html.HiddenFor(c => c.PostId)
+            @Html.TextBoxFor(c => c.Content, new { id = "txtBox(" + Model.PostId + ")", @class = "form-control inputComment", placeholder = "Add new comment..." })
+        }
+        
+        <div class="input-group-append">
+            <label class="comment-image mt-2 mr-1" for="customFileLang">
+                <input type="file" id="customFileLang" lang="es" style="display: none">
+                <i class="fas fa-images pr-3"></i>
+            </label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@model Comment
+@{ 
+    var duration = DateTime.Now - Model.Date;
+    var sinceWhen = duration.Days > 0 ? duration.Days : (duration.Hours > 0 ? duration.Hours :
+                                                        (duration.Minutes > 0 ?  duration.Minutes :
+                                                         duration.Seconds));
+
+    var timeChar = duration.Days > 1 ?  "Days" : (duration.Hours > 0 ? "h" : (duration.Minutes > 0 ? "m" : "s"));
+
+
+}
+<style>
+    .active{
+        color:blue;
+
+    }
+</style>
+<div class="comment-sec pl-5">
+    <!--Comment-->
+    <div class="row ">
+        <img class="post-profile-img mt-4 " src="unnamed.jpg">
+        <div class="col-sm-10 mt-3 mr-0">
+
+            <div class="card comment">
+                <div class="card-body">
+                    <div class="comment--header ">
+                        <a class="card-title comment--auther " href="#">@Model.Author.FirstName @Model.Author.LastName</a>
+                        <div class="options-sec">
+                            <p class="text-right font-weight-light comment--operation">@sinceWhen@timeChar <i class="fas fa-ellipsis-h option-click "></i> </p>
+                            <div class="card comment-options" style="width: 15rem">
+                                <div class="card-body pt-2 pb-1 ">
+                                    <p class="card-text "> <i class="fas fa-link"></i> Copy Link to Comment</p>
+                                    <p class="card-text"> <i class="far fa-flag"></i> Report</p>
+                                    <p class="card-text"> <i class="fas fa-pen"></i> Edit</p>
+                                    <p class="card-text" data-toggle="modal" data-target="#exampleModalScrollable"> <i class="fas fa-trash"></i> Delete</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="font-weight-light comment--auth-job">Light weight text.</p>
+
+                    <p class="card-text comment--text">@Model.Content</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--End Comment-->
+    <!-- React-->
+    <div class="row ">
+
+        <div class="col-sm-6 ml-5 ">
+            <div class="card comment-bar ">
+                <div class="card-body pt-1">
+                    <div id="likeComm">@Model.Likes.Count</div>
+                    <i class="far fa-thumbs-up pr-2 comment-like" onclick="LikeComment('@Model.Id')"></i>
+                    <span class="line"><span class="font-weight-light likes-no">.1 Like</span> </span>
+                    <i class="far fa-comment-alt pl-3"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End React-->
+</div>
+<script>
+    function LikeComment(commId) {
+        console.log(commId);
+      
+
+        $.ajax({
+            method: "GET",
+            data: { commId: commId },
+            url: '/NewsFeed/LikeComment',
+            contentType: "application/json",
+            dataType: "json",
+          
+
+        });
+        $("#likeComm").innerHTML=@Model.Likes.Count;
+        $(".comment-like").classList.toggle('active');
+
+    }
+</script>

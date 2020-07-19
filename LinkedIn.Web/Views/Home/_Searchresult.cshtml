@@ -1,0 +1,19 @@
+﻿@model ApplicationUser
+<li>
+    <div class="search-result">
+
+        <div class="search-result__img">
+            <a href="@Model.ProfilePicURL"></a>
+        </div>
+
+        <div class="search-result__info">
+            <a href="" class="name">@Model.FirstName @Model.LastName</a>
+            <p class="data"> @Model.HeadLine</p>
+            <p class="country">@Model.Country</p>
+        </div>
+
+        <div class="search-result__action">
+            <button class="connect">Connect</button>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,71 @@
+﻿@model UserSearchViewModel
+<li>
+    <div class="search-result">
+
+        @Html.Hidden(Model.User.Id)
+        <div class="search-result__img">
+            @*<a href="@Model.User.ProfilePicURL"></a>*@
+            @if (Model.User.ProfilePicURL != null)
+            {
+                <img src="@Url.Content(Model.User.ProfilePicURL)" style="width: 5rem; border-radius: 50%;">
+            }
+            else
+            {
+                <img src="~/images/defaultImage.png"  style="width: 5rem; border-radius: 50%;">
+            }
+        </div>
+
+        <div class="search-result__info">
+            @*<a href="" class="name">@Model.User.FirstName @Model.User.LastName</a>*@
+            @Html.ActionLink( Model.User.FirstName + " " + Model.User.LastName, "Index", "Profile", new { @id = Model.User.Id, @class = "name" }, null)
+            <p class="data"> @Model.User.HeadLine</p>
+            <p class="country">@Model.User.Country</p>
+        </div>
+
+        <div class="search-result__action">
+            @if (Model.UserType==UserType.Connected)
+            {
+                using (Html.BeginForm("Index", "Profile"))
+                {
+                    @*<button class="connect" >ViewProfile</button>*@
+                    @Html.ActionLink("View Profile", "Index", "Profile", null, new { @class = "connect", id = Model.User.Id })
+                }
+            }
+            else if (Model.UserType == UserType.pending)
+            {
+
+                    <button class="connect" disabled>Pending</button>
+
+            }
+            else if (Model.UserType == UserType.requested)
+            {
+                <button id="@Model.User.Id+acc" onclick="Respond('@Model.User.Id.ToString()')" class="connect">
+                    @Ajax.ActionLink("Accept", "RespondRequest", new { id = Model.User.Id, type = 1 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    }) </button>
+                    <button id="@Model.User.Id+req" onclick="Respond('@Model.User.Id.ToString()')" class="connect">
+                        @Ajax.ActionLink("Reject", "RespondRequest", new { id = Model.User.Id, type = 0 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                    </button>
+            }
+            else if (Model.UserType == UserType.noConnection)
+            {
+                <button id="@Model.User.Id+con" onclick="Pending('@Model.User.Id.ToString()')" class="connect">
+                    @Ajax.ActionLink("Connect", "ConenctRequest", new { id = Model.User.Id },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                </button>
+            }
+</div>
+    </div>
+</li>

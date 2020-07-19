@@ -1,0 +1,77 @@
+﻿﻿@model Post
+<style>
+ .active{
+        color:blue;
+
+    }
+</style>
+
+<div class="post-footer card-footer" style="display: flex;" id="comments@(Model.Id)">
+    <div class="post-footer-action">
+        <div class="post-footer-like">
+
+            <button class="btn btn-light reactions-container btn-lg btn btn-secondary" data-animation="true" data-html="true" data-placement="top" data-toggle="popover" data-trigger="hover focus"
+                    data-content='<i class="far fa-thumbs-up " id="reaction" ></i>&nbsp;
+                              <i class="fas fa-praying-hands " id="reaction"></i>&nbsp;
+                              <i class="fas fa-heart  " id="reaction"></i>&nbsp;
+                              <i class="fab fa-free-code-camp  " id="reaction"></i>&nbsp;
+                              <i class="far fa-angry  " id="reaction"></i>'
+
+<div class="post-footer card-footer" style="display: flex;">
+  <div id="like">@Model.Likes.Count</div>  
+    <div class="post-footer-action">
+        <div class="post-footer-like">
+
+            <button onclick="LikeIt('@Model.Id')" class="btn btn-light reactions-container btn-lg btn btn-secondary" id="@Model.AuthorId"data-animation="true" data-html="true" data-placement="top" data-toggle="popover" data-trigger="hover focus">
+
+                 <i class="far fa-thumbs-up container__Sign reaction-sign"></i>  like
+             </button>
+         
+        </div>
+        &nbsp;
+        <div>
+            <button class="btn btn-light btn-lg">
+                <i class="far fa-comment-dots container__Sign comment-sign"></i>
+                comment
+            </button>
+        </div>
+        &nbsp;
+        <div>
+            <button class="btn btn-light btn-lg" data-toggle="modal" data-target="#post">
+                <i class="far fa-share-square container__Sign share-sign "></i>
+                share
+            </button>
+        </div>
+    </div>
+    @Html.Partial("_AddCommentTxtBox", new CommentViewModel { PostId = Model.Id})
+
+    @foreach(Comment item in Model.Comments)
+    {
+        Html.RenderPartial("_Comment", item);
+    }
+
+
+
+
+
+
+</div>
+<script>
+    function LikeIt(postId) {
+        console.log(postId);
+      
+
+        $.ajax({
+            method: "GET",
+            data: { postId: postId },
+            url: '/NewsFeed/Like',
+            contentType: "application/json",
+            dataType: "json",
+          
+
+        });
+        $("#like").innerHTML=@Model.Likes.Count;
+        $("#"+@Model.AuthorId).classList.toggle('active');
+
+    }
+</script>

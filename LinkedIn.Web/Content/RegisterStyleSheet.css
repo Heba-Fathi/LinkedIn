@@ -1,0 +1,251 @@
+﻿html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Fira Sans', sans-serif; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ v2.0 | 20110126
+ License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.grid-container {
+  width: 1579px;
+  max-width: 100%;
+  margin: auto;
+  background-color: red; }
+
+.signup-btn {
+  padding: 0.8rem;
+  width: 90%;
+  border-style: none;
+  border-radius: 0.1  rem;
+  color: white;
+  margin: 1rem 0; }
+  .signup-btn--sky {
+    background-color: #00a0dc;
+    transition: background-color 0.3s; }
+    .signup-btn--sky:hover {
+      background-color: #006097; }
+  .signup-btn--dark-blue {
+    background-color: #425597;
+    transition: background-color 0.3s; }
+    .signup-btn--dark-blue:hover {
+      background-color: #3F5190; }
+
+@media only screen and (min-width: 992px) {
+  .signup-btn {
+    max-width: 95%; } }
+
+.signup-upload input[type="file"] {
+  display: none; }
+
+.signup-upload label[for="UploadPhoto"] {
+  display: inline-block;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  font-size: 2.5rem;
+  line-height: 4.7rem;
+  color: #00a0dc;
+  margin-top: 1rem; }
+
+@media only screen and (min-width: 992px) {
+  label[for="UploadPhoto"] {
+    align-self: center !important;
+    margin: 0 !important; } }
+
+.signup-form-input {
+  width: 80%;
+  padding: 1rem;
+  border: none;
+  border-bottom: solid 0.1rem rgba(0, 0, 0, 0.2); }
+
+@media only screen and (min-width: 992px) {
+  .signup-form-input {
+    border: solid 0.05rem black;
+    border-radius: 0.15rem;
+    max-width: 80%;
+    margin: 2% 7%;
+    padding: 0.5rem 1rem; } }
+
+.signup-page {
+  background: linear-gradient(45deg, #0073b1, #0c8996);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white; }
+  .signup-page a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none; }
+  .signup-page label {
+    display: none; }
+
+.signup__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 31rem; }
+
+.signup__logo {
+  line-height: 5.4rem;
+  font-size: 2.1rem;
+  padding-left: 32%;
+  font-weight: 700;
+  letter-spacing: 0.1rem; }
+
+.signup__caption {
+  line-height: 2.4rem;
+  font-size: 2.0rem;
+  text-align: center;
+  margin-bottom: 6%; }
+
+.signup__aggr {
+  font-size: 0.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem; }
+
+.signup__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.signup-form-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+@media only screen and (min-width: 768px) {
+  .signup__form {
+    max-width: 40rem; }
+  .signup__logo {
+    font-size: 2.6rem;
+    padding-left: 38%; }
+  .signup__caption {
+    font-size: 2.3rem;
+    line-height: 1.7rem; } }
+
+@media only screen and (min-width: 768px) {
+  .signup__form {
+    max-width: 40rem; }
+  .signup__logo {
+    font-size: 2.6rem;
+    padding-left: 34.5%; }
+  .signup__caption {
+    font-size: 2.0rem;
+    line-height: 3.0rem; }
+  .signup__aggr {
+    color: white; } }
+
+@media only screen and (min-width: 992px) {
+  .signup-form-input-container label {
+    align-self: start;
+    margin-left: 6%; }
+  .signup__form {
+    max-width: 35rem; }
+  .signup__logo {
+    font-size: 2rem;
+    padding-left: 37%; }
+  .signup__caption {
+    font-size: 2.0rem;
+    line-height: 1.7rem; }
+  .signup__main {
+    max-width: 74%;
+    background-color: #EDF0F3;
+    color: rgba(0, 0, 0, 0.9);
+    height: 62rem; }
+  .signup__aggr {
+    color: rgba(0, 0, 0, 0.6); }
+  ::-webkit-input-placeholder {
+    color: transparent; }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: transparent; }
+  .signup-form-input-container {
+    margin-top: 2rem; }
+  .signup-page a {
+    color: rgba(0, 0, 0, 0.6); }
+  .signup-page label {
+    display: initial; } }
+
+.footer-end {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-top: 5%; }
+  .footer-end__brand {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.26rem; }
+  .footer-end__li {
+    padding-left: 0;
+    padding-right: 0; }
+  .footer-end__list {
+    list-style: none; }
+  .footer-end__dropdown-item {
+    color: #0073B0;
+    font-size: calc(0.6rem + 0.5vw); }
+    .footer-end__dropdown-item:hover {
+      color: white;
+      background-color: #0073B0; }
+  .footer-end__text {
+    color: #9C9E9F;
+    font-weight: 500;
+    font-size: 0.79rem;
+    padding-top: 1.5rem; }
+  .footer-end__logo {
+    width: 4rem; }

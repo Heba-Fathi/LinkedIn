@@ -1,0 +1,47 @@
+﻿@model ApplicationUser
+<li>
+    <div class="search-result">
+
+        @Html.Hidden(Model.Id)
+        <div class="search-result__img">
+            @*<a href="@Model.ProfilePicURL"></a>*@
+            @if (Model.ProfilePicURL != null)
+            {
+                <img src="@Url.Content(Model.ProfilePicURL)" style="width: 5rem; border-radius: 50%;">
+            }
+            else
+            {
+                <img src="~/images/defaultImage.png" style="width: 5rem; border-radius: 50%;">
+            }
+        </div>
+
+        <div class="search-result__info">
+            @*<a href="" class="name">@Model.FirstName @Model.LastName</a>*@
+            @Html.ActionLink(Model.FirstName + " " + Model.LastName, "Index", "Profile", new { @id = Model.Id, @class = "name" }, null)
+            <p class="data"> @Model.HeadLine</p>
+            <p class="country">@Model.Country</p>
+        </div>
+
+        <div class="search-result__action">
+            
+                <button id="@Model.Id+acc" onclick="Respond('@Model.Id.ToString()')" class="connect">
+                    @Ajax.ActionLink("Accept", "RespondRequest", new { id = Model.Id, type = 1 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                </button>
+                    <button id="@Model.Id+req" onclick="Respond('@Model.Id.ToString()')" class="connect">
+                        @Ajax.ActionLink("Reject", "RespondRequest", new { id = Model.Id, type = 0 },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST"
+
+                    })
+                    </button>
+            
+        </div>
+    </div>
+</li>
+

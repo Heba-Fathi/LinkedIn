@@ -1,0 +1,87 @@
+﻿@model PostViewModel
+@{
+    AjaxOptions opts = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "HidePostModal()",
+        InsertionMode = InsertionMode.InsertBefore,
+        UpdateTargetId = "posts"
+    };
+}
+
+@using (Ajax.BeginForm("AddPost", "NewsFeed", opts, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal fade" id="post" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="mypost">
+                        <div class="mypost-header">
+                            <h2>Create a post</h2>
+                            <button type="button" class="close mypost-close" data-dismiss="modal" aria-label="Close" id="btnClear">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <!-- <div class="post-close">
+                                <i class="fas fa-times"></i>
+                            </div> -->
+                        </div>
+                        <div class="mypost-body">
+                            <div class="mypost-body_top">
+                                @*<div class="mypost-profilepic"></div>*@
+                                @if (Model.User.ProfilePicURL != null)
+                                {
+                                    <img class="mypost-profilepic" src="@Url.Content(Model.User.ProfilePicURL)" alt="Card image cap">
+                                }
+                                else
+                                {
+                                    <img class="mypost-profilepic" src="~/images/defaultImage.png" alt="Card image cap">
+                                }
+
+                                <span>@Model.User.FirstName @Model.User.LastName</span>
+                            </div>
+                            <div class="mypost-body_middle">
+                                @Html.TextAreaFor(p => p.Status, new { @rows = "12", @name = "post-text", @id = "textEditor", @placeholder = "What do you want to talk about?" })
+                                <div id="postBody">
+                                </div>
+                                <input type="file" name="imgFile" hidden id="in2" />
+                                @Html.ValidationMessageFor(m => m.imgFile)
+                            </div>
+                            <div class="mypost-body_bottom">
+                                <div class="mypost-body_bottomContent">
+                                    <button class="mypost-hashtag">Add hashtag</button>
+                                    <span>Help the right people see your post</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mypost-footer">
+                            <div class="mypost-footer_media">
+                                <button type="button" class="button button-icons button-footer">
+                                    <label class="mypost-label" data-toggle="modal" data-target="#picture">
+                                        <i class="fas fa-camera"></i>
+                                        @*<input type="file" multiple />*@
+                                    </label>
+                                </button>
+                                <button type="button" class="button button-icons button-footer">
+                                    <label class="mypost-label" data-toggle="modal" data-target="#video">
+                                        <i class="fas fa-video"></i>
+                                        @*<input type="file" multiple />*@
+                                    </label>
+                                </button>
+                                <button type="button" class="button button-icons button-footer">
+                                    <label class="mypost-label" data-toggle="modal" data-target="#document">
+                                        <i class="far fa-file-alt"></i>
+                                        @*<input type="file" multiple />*@
+                                    </label>
+                                </button>
+                            </div>
+                            <div class="mypost-footer_publish">
+                                <input type="file" name="imgFile" hidden id="in2" />
+                                <input type="submit" value="Post" class="mypost-footer_publish-btn mypost-footer_publishEnabele mypost-footer_publishDisable" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

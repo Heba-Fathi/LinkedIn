@@ -1,0 +1,75 @@
+﻿@model PostViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/NewsFeedStyle.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="row mt-5 mx-auto">
+        @Html.Partial("_UserCard", Model.User)
+        <div class="col-md-4 col-lg-5 col-sm-6">
+            <div class="create-post ">
+                <div class="writePost">
+                    <button class="button button-post button-border" data-toggle="modal" data-target="#post">
+                        <i class="far fa-edit post-icon"></i>
+                        <span>Start a post</span>
+                    </button>
+                    <button class="button button-icons button-border">
+                        <label class="mypost-label" data-toggle="modal" data-target="#picture">
+                            <i class="fas fa-camera"></i>
+                            <input type="file" onchange="readImgURL(this);" multiple />
+                        </label>
+                    </button>
+                    <button class="button button-icons button-border">
+                        <label class="mypost-label" data-toggle="modal" data-target="#video">
+                            <i class="fas fa-video"></i>
+                            <input type="file" multiple />
+                        </label>
+                    </button>
+                    <button class="button button-icons">
+                        <label class="mypost-label" data-toggle="modal" data-target="#document">
+                            <i class="far fa-file-alt"></i>
+                            <input type="file" multiple />
+                        </label>
+                    </button>
+                </div>
+                <div class="article">
+                    <a href="#">Write an article </a>on LinkedIn
+                </div>
+                @Html.Partial("_WritePost", Model)
+                @Html.Partial("_UploadPic")
+                @Html.Partial("_UploadVideo")
+                @Html.Partial("_UploadDoc")
+                @Html.Partial("_View5")
+                <div class="posts mt-5" id="posts">
+
+                    @foreach (var item in Model.PagePosts)
+                    {
+                        @Html.Partial("_PostBody", item)
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-2"> </div>
+        @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a2c240c32b.js" crossorigin="anonymous"></script>
+        @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>*@
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="~/Scripts/NewsFeedScript.js"></script>
+</body>
+</html>
